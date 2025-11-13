@@ -67,7 +67,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ UPDATED property (fixed)
+    
     app.put("/estates/:id", async (req, res) => {
       try {
         const { id } = req.params;
@@ -91,7 +91,7 @@ async function run() {
       }
     });
 
-    // ✅ GET latest 6 properties
+    
     app.get("/home-features", async (req, res) => {
       const result = await estateCollection
         .find()
@@ -101,7 +101,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ POST user
+    
     app.post("/users", async (req, res) => {
       const user = req.body;
       const existing = await usersCollection.findOne({ email: user.email });
@@ -113,7 +113,7 @@ async function run() {
       }
     });
 
-    // ✅ POST review
+    
     app.post("/reviews", async (req, res) => {
       const review = req.body;
       if (
@@ -129,7 +129,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ GET reviews by propertyId
+    
     app.get("/reviews", async (req, res) => {
       const { propertyId } = req.query;
       const query = propertyId ? { propertyId } : {};
@@ -137,7 +137,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ GET reviews by user email (for MyRatings)
+    
     app.get("/my-reviews", async (req, res) => {
       const { email } = req.query;
       if (!email) {
@@ -146,7 +146,7 @@ async function run() {
 
       const reviews = await reviewsCollection.find({ userEmail: email }).toArray();
 
-      // Enrich with property image
+      
       const enriched = await Promise.all(
         reviews.map(async (r) => {
           const property = await estateCollection.findOne({ _id: new ObjectId(r.propertyId) });
