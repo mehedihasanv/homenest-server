@@ -34,7 +34,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ GET single property by ID
+    
     app.get("/estates/:id", async (req, res) => {
       const { id } = req.params;
       const result = await estateCollection.findOne({ _id: new ObjectId(id) });
