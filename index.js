@@ -61,7 +61,6 @@ async function run() {
       res.send({ insertedId: result.insertedId });
     });
 
-    // ✅ DELETE property
     app.delete("/estates/:id", async (req, res) => {
       const { id } = req.params;
       const result = await estateCollection.deleteOne({ _id: new ObjectId(id) });
