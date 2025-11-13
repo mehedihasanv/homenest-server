@@ -26,7 +26,7 @@ async function run() {
     const usersCollection = db.collection("users");
     const reviewsCollection = db.collection("reviews");
 
-    // ✅ GET all properties or filter by user email
+    
     app.get("/estates", async (req, res) => {
       const email = req.query.email;
       const query = email ? { userEmail: email } : {};
