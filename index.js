@@ -77,7 +77,7 @@ async function run() {
           return res.status(400).send({ error: "Invalid ID format" });
         }
 
-        delete updatedData._id; // ✅ MongoDB doesn't allow updating _id
+        delete updatedData._id; 
 
         const result = await estateCollection.updateOne(
           { _id: new ObjectId(id) },
