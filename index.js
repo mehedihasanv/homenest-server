@@ -41,7 +41,7 @@ async function run() {
       res.send(result);
     });
 
-    // ✅ POST new property
+
     app.post("/estates", async (req, res) => {
       const newProperty = req.body;
       if (
